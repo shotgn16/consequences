@@ -1,5 +1,8 @@
 # Consequences 📜✏️
 
+[![Open your Home Assistant instance and show the dashboard of the Consequences app.](https://my.home-assistant.io/badges/supervisor_addon.svg)](https://my.home-assistant.io/redirect/supervisor_addon/?addon=16ee7fa4_consequences&repository_url=https%3A%2F%2Fgithub.com%2Fshotgn16%2Fconsequences)
+[![Open your Home Assistant instance and show the add app repository dialog with this repository URL pre-filled.](https://my.home-assistant.io/badges/supervisor_add_addon_repository.svg)](https://my.home-assistant.io/redirect/supervisor_add_addon_repository/?repository_url=https%3A%2F%2Fgithub.com%2Fshotgn16%2Fconsequences)
+
 The classic folded-paper party game, online. Write a bit, fold it over, pass it on, then unfold the chaos together. You can draw the people, outfits and meeting places right on the paper.
 
 * **ASP.NET Core 10** + SignalR, real-time, no database needed
@@ -109,7 +112,14 @@ docker run -d --name consequences -p 8080:8080 -v consequences-data:/data \
 
 ## Install as a Home Assistant App
 
-1. In Home Assistant go to **Settings → Apps → App store** (older versions: *Add-ons → Add-on store*), open the **⋮** menu → **Repositories**, and add the URL of this Git repository (it contains `repository.yaml`).
+**One click:** press the button. It adds this repository to your Home Assistant and opens the Consequences app, ready to install:
+
+[![Open your Home Assistant instance and show the dashboard of the Consequences app.](https://my.home-assistant.io/badges/supervisor_addon.svg)](https://my.home-assistant.io/redirect/supervisor_addon/?addon=16ee7fa4_consequences&repository_url=https%3A%2F%2Fgithub.com%2Fshotgn16%2Fconsequences)
+[![Open your Home Assistant instance and show the add app repository dialog with this repository URL pre-filled.](https://my.home-assistant.io/badges/supervisor_add_addon_repository.svg)](https://my.home-assistant.io/redirect/supervisor_add_addon_repository/?repository_url=https%3A%2F%2Fgithub.com%2Fshotgn16%2Fconsequences)
+
+**Or by hand:**
+
+1. In Home Assistant go to **Settings → Apps → App store** (older versions: *Add-ons → Add-on store*), open the **⋮** menu → **Repositories**, and add `https://github.com/shotgn16/consequences`.
 2. Find **Consequences** in the store, click **Install** (the first build on a Raspberry Pi takes a few minutes), then **Start**.
 3. Turn on **Show in sidebar**. Opening it from the sidebar gives you the game *and* the ⚙️ Settings page with no PIN, because Home Assistant has already logged you in.
 4. On the **Configuration** tab you'll find every feature switch plus the general options (admin PIN, public URL…).
