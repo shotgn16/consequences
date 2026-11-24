@@ -1,0 +1,103 @@
+# Home Assistant App (formerly "add-on") configuration
+name: Consequences
+version: "1.0.0"
+slug: consequences
+description: The folded-paper party game, online with drawing. Many rooms, any browser, any device.
+url: https://github.com/shotgn16/consequences
+arch:
+  - aarch64
+  - amd64
+  - armv7
+init: false
+startup: application
+boot: auto
+# Uncomment to use pre-built images from GitHub Actions instead of building on your HA box:
+# image: ghcr.io/shotgn16/consequences-{arch}
+
+# Sidebar panel (HA authenticates these users; admin settings open without a PIN here)
+ingress: true
+ingress_port: 8080
+panel_icon: mdi:draw
+panel_title: Consequences
+
+# Direct port for players and for your Cloudflare Tunnel
+ports:
+  8080/tcp: 8080
+ports_description:
+  8080/tcp: Game web interface (point your Cloudflare Tunnel at this)
+webui: "http://[HOST]:[PORT:8080]/"
+watchdog: "http://[HOST]:[PORT:8080]/health"
+
+options:
+  admin_pin: ""
+  public_url: ""
+  create_room_pin: ""
+  app_name: "Consequences"
+  max_rooms: 50
+  max_players_per_room: 16
+  room_idle_minutes: 120
+  default_text_seconds: 90
+  default_draw_seconds: 180
+  extra_banned_words: []
+  feature_drawing: true
+  feature_picture_mode: true
+  feature_peek: true
+  feature_timer: true
+  feature_auto_fill: true
+  feature_inspire: true
+  feature_chat: true
+  feature_reactions: true
+  feature_stars: true
+  feature_read_aloud: true
+  feature_rotate_reader: true
+  feature_show_authors: true
+  feature_bots: true
+  feature_spectators: true
+  feature_custom_templates: true
+  feature_shuffle_pass: true
+  feature_sounds: true
+  feature_word_filter: true
+  feature_export_image: true
+  feature_hall_of_fame: true
+  feature_public_rooms: true
+  feature_room_passwords: true
+  feature_qr_code: true
+  feature_stats_api: true
+  feature_admin_via_ingress: true
+schema:
+  admin_pin: "password?"
+  public_url: "str?"
+  create_room_pin: "password?"
+  app_name: str
+  max_rooms: "int(1,1000)"
+  max_players_per_room: "int(2,40)"
+  room_idle_minutes: "int(5,10080)"
+  default_text_seconds: "int(10,900)"
+  default_draw_seconds: "int(10,1800)"
+  extra_banned_words:
+    - str
+  feature_drawing: bool
+  feature_picture_mode: bool
+  feature_peek: bool
+  feature_timer: bool
+  feature_auto_fill: bool
+  feature_inspire: bool
+  feature_chat: bool
+  feature_reactions: bool
+  feature_stars: bool
+  feature_read_aloud: bool
+  feature_rotate_reader: bool
+  feature_show_authors: bool
+  feature_bots: bool
+  feature_spectators: bool
+  feature_custom_templates: bool
+  feature_shuffle_pass: bool
+  feature_sounds: bool
+  feature_word_filter: bool
+  feature_export_image: bool
+  feature_hall_of_fame: bool
+  feature_public_rooms: bool
+  feature_room_passwords: bool
+  feature_qr_code: bool
+  feature_stats_api: bool
+  feature_admin_via_ingress: bool

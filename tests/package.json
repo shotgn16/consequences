@@ -1,0 +1,8 @@
+{
+  "name": "consequences-e2e",
+  "private": true,
+  "type": "module",
+  "description": "End-to-end test: plays full games over SignalR. Run against a server with chat and bots enabled: BASE=http://localhost:8080 npm test",
+  "scripts": { "test": "node e2e.mjs" },
+  "dependencies": { "@microsoft/signalr": "^11.0.0" }
+}

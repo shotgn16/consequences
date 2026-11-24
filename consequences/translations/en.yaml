@@ -1,0 +1,108 @@
+configuration:
+  admin_pin:
+    name: "Admin PIN"
+    description: "PIN for the in-game Settings page when opened from outside Home Assistant (e.g. through your Cloudflare Tunnel). Leave empty to only allow admin from the HA sidebar."
+  public_url:
+    name: "Public URL"
+    description: "The address players use from outside, e.g. https://consequences.example.com. Used for invite links and QR codes."
+  create_room_pin:
+    name: "Room-creation PIN"
+    description: "If set, people need this PIN to create a room (anyone can still join with a code). Handy when exposed to the internet."
+  app_name:
+    name: "App name"
+    description: "Title shown in the browser."
+  max_rooms:
+    name: "Max rooms"
+    description: "How many rooms can exist at once."
+  max_players_per_room:
+    name: "Max players per room"
+    description: "Upper limit hosts can choose."
+  room_idle_minutes:
+    name: "Close idle rooms after (minutes)"
+    description: "Rooms with no activity are tidied away."
+  default_text_seconds:
+    name: "Default seconds to write"
+    description: "Starting timer for writing folds."
+  default_draw_seconds:
+    name: "Default seconds to draw"
+    description: "Starting timer for drawing folds."
+  extra_banned_words:
+    name: "Extra filtered words"
+    description: "Words the family-friendly filter should also hide."
+  feature_drawing:
+    name: "Feature: Drawing"
+    description: "Draw the people, outfits and meeting places right on the paper. (Hosts can also switch this off per room.)"
+  feature_picture_mode:
+    name: "Feature: Picture Consequences"
+    description: "The drawing version: head, body, legs and feet drawn by different players. (Hosts can also switch this off per room.)"
+  feature_peek:
+    name: "Feature: Peek over the fold"
+    description: "Next player sees the last few words of the previous fold, like a badly folded paper. (Picture mode always shows the lines over the fold.) (Hosts can also switch this off per room.)"
+  feature_timer:
+    name: "Feature: Round timer"
+    description: "Put a countdown on every fold. (Hosts can also switch this off per room.)"
+  feature_auto_fill:
+    name: "Feature: Auto-fill"
+    description: "Fill in for slow or departed players with a random silly answer. (Hosts can also switch this off per room.)"
+  feature_inspire:
+    name: "Feature: Inspire me"
+    description: "A dice button that suggests something to write. (Hosts can also switch this off per room.)"
+  feature_chat:
+    name: "Feature: Room chat"
+    description: "Text chat between players in a room. (Hosts can also switch this off per room.)"
+  feature_reactions:
+    name: "Feature: Emoji reactions"
+    description: "Throw emoji at the screen during the big reveal. (Hosts can also switch this off per room.)"
+  feature_stars:
+    name: "Feature: Stars & awards"
+    description: "Star your favourite lines and drawings; awards and scores at the end. (Hosts can also switch this off per room.)"
+  feature_read_aloud:
+    name: "Feature: Read aloud"
+    description: "Text-to-speech reads each fold as it is unfolded. (Hosts can also switch this off per room.)"
+  feature_rotate_reader:
+    name: "Feature: Take turns reading"
+    description: "Each paper is unfolded by a different player, like passing the papers round to read. (Hosts can also switch this off per room.)"
+  feature_show_authors:
+    name: "Feature: Show who wrote what"
+    description: "Show the author's name on each fold during the reveal. (Hosts can also switch this off per room.)"
+  feature_bots:
+    name: "Feature: Computer players"
+    description: "Add bots to make up the numbers. (Hosts can also switch this off per room.)"
+  feature_spectators:
+    name: "Feature: Spectators & late joiners"
+    description: "Let people watch, or join a game already in progress as a spectator. (Hosts can also switch this off per room.)"
+  feature_custom_templates:
+    name: "Feature: Custom prompts"
+    description: "Hosts can write their own set of folds. (Hosts can also switch this off per room.)"
+  feature_shuffle_pass:
+    name: "Feature: Shuffle passing"
+    description: "Papers jump to a random player instead of always passing left. (Hosts can also switch this off per room.)"
+  feature_sounds:
+    name: "Feature: Sound effects"
+    description: "Paper rustles, dings and fanfares. (Hosts can also switch this off per room.)"
+  feature_word_filter:
+    name: "Feature: Family-friendly filter"
+    description: "Masks rude words. Allowed here; hosts switch it on per room."
+  feature_export_image:
+    name: "Feature: Save & share images"
+    description: "Download or share a finished story as a picture. (Hosts can also switch this off per room.)"
+  feature_hall_of_fame:
+    name: "Feature: Hall of Fame"
+    description: "Save favourite stories permanently to the server's gallery. (Hosts can also switch this off per room.)"
+  feature_public_rooms:
+    name: "Feature: Public room browser"
+    description: "List open rooms on the home screen so anyone can join."
+  feature_room_passwords:
+    name: "Feature: Room passwords"
+    description: "Hosts can lock a room with a password."
+  feature_qr_code:
+    name: "Feature: QR join codes"
+    description: "Show a QR code so phones can join in a snap."
+  feature_stats_api:
+    name: "Feature: Stats API"
+    description: "Expose /api/stats for Home Assistant REST sensors."
+  feature_admin_via_ingress:
+    name: "Feature: Admin via HA sidebar"
+    description: "Open the admin page without a PIN when coming through the Home Assistant sidebar (ingress)."
+network:
+  8080/tcp: "Game web interface (players and Cloudflare Tunnel)"

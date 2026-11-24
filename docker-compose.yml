@@ -1,0 +1,37 @@
+services:
+  consequences:
+    build: ./consequences
+    image: consequences:latest
+    container_name: consequences
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
+    volumes:
+      - consequences-data:/data
+    user: app                       # run as non-root (named volume inherits /data ownership)
+    env_file:
+      - path: .env
+        required: false
+    environment:
+      # CONSEQ_ADMIN_PIN: change-me
+      # CONSEQ_PUBLIC_URL: https://consequences.example.com
+      # CONSEQ_CREATE_ROOM_PIN: ""
+      # Switch any feature off, e.g.:
+      # CONSEQ_FEATURE_CHAT: "false"
+      # CONSEQ_FEATURE_PUBLIC_ROOMS: "false"
+      TZ: Europe/London
+
+  # Optional: Cloudflare Tunnel.  docker compose --profile tunnel up -d
+  # Put TUNNEL_TOKEN=... in .env and point the public hostname at http://consequences:8080
+  cloudflared:
+    image: cloudflare/cloudflared:latest
+    profiles: ["tunnel"]
+    restart: unless-stopped
+    command: tunnel --no-autoupdate run
+    environment:
+      TUNNEL_TOKEN: ${TUNNEL_TOKEN:-}
+    depends_on:
+      - consequences
+
+volumes:
+  consequences-data:
